@@ -1,0 +1,28 @@
+{
+    "name": "todo-app-backend",
+    "version": "1.0.0",
+    "description": "Backend pour l'application Todo avec Express, Socket.IO et MongoDB",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon server.js"
+    },
+    "keywords": [
+        "express",
+        "mongodb",
+        "socket.io",
+        "todo"
+    ],
+    "author": "Hugo",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^4.21.2",
+        "mongoose": "^7.8.6",
+        "socket.io": "^4.8.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.22"
+    }
+}
