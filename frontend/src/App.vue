@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <h1>Ma Todo List</h1>
+      <h1>My Todo List</h1>
       <TaskForm @task-added="handleTaskAdded" />
       <TaskList :tasks="tasks" />
     </div>
@@ -27,19 +27,19 @@
       };
     },
     created() {
-      // Initialiser la connexion Socket.IO
+      // Initialize Socket.IO connection
       this.socket = io(process.env.VUE_APP_SOCKET_URL);
 
-      // Écouter les nouvelles tâches
+      // Listen for new tasks
       this.socket.on("newTask", (task) => {
         this.tasks.unshift(task);
       });
 
-      // Charger les tâches depuis l'API
+      // Load tasks from API
       this.fetchTasks();
     },
     beforeDestroy() {
-      // Fermer la connexion Socket.IO
+      // Close Socket.IO connection
       if (this.socket) {
         this.socket.disconnect();
       }
@@ -52,14 +52,14 @@
           );
           this.tasks = response.data;
         } catch (error) {
-          console.error("Erreur lors du chargement des tâches:", error);
+          console.error("Error loading tasks:", error);
         }
       },
       handleTaskAdded(task) {
-        // Ajouter la tâche à la liste locale
+        // Add task to local list
         this.tasks.unshift(task);
 
-        // Émettre l'événement à tous les autres clients
+        // Emit event to all other clients
         this.socket.emit("taskAdded", task);
       },
     },

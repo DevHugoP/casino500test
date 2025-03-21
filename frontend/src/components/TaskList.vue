@@ -1,8 +1,8 @@
 <template>
   <div class="task-list">
-    <h2>Mes tâches</h2>
+    <h2>My Tasks</h2>
     <div v-if="tasks.length === 0" class="empty-list">
-      Aucune tâche pour le moment. Ajoutez-en une !
+      No tasks for now. Add one!
     </div>
     <ul v-else>
       <li v-for="task in tasks" :key="task._id" class="task-item">

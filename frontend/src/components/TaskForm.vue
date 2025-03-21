@@ -5,10 +5,10 @@
         <input
           type="text"
           v-model="title"
-          placeholder="Ajouter une nouvelle tâche..."
+          placeholder="Add a new task..."
           required
           class="form-control" />
-        <button type="submit" class="btn">Ajouter</button>
+        <button type="submit" class="btn">Add</button>
       </div>
     </form>
   </div>
@@ -27,10 +27,8 @@
     methods: {
       async addTask() {
         try {
-          // Vérifier si le titre n'est pas vide
           if (!this.title.trim()) return;
 
-          // Envoyer la requête POST
           const response = await axios.post(
             `${process.env.VUE_APP_API_URL}/tasks`,
             {
@@ -38,13 +36,11 @@
             }
           );
 
-          // Émettre l'événement avec la nouvelle tâche
           this.$emit("task-added", response.data);
 
-          // Réinitialiser le formulaire
           this.title = "";
         } catch (error) {
-          console.error("Erreur lors de l'ajout de la tâche:", error);
+          console.error("Error adding task:", error);
         }
       },
     },
