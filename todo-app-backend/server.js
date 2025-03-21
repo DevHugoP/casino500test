@@ -27,18 +27,18 @@ const io = socketIO(server, {
 });
 
 io.on('connection', (socket) => {
-  console.log('Nouvelle connexion Socket.IO:', socket.id);
+  console.log('New connexion to Socket.IO:', socket.id);
 
   socket.on('taskAdded', (task) => {
     socket.broadcast.emit('newTask', task);
   });
 
   socket.on('disconnect', () => {
-    console.log('Déconnexion Socket.IO:', socket.id);
+    console.log('Disconect from Socket.IO:', socket.id);
   });
 });
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => {
-  console.log(`Serveur démarré sur le port ${PORT}`);
+  console.log(`Server started on port ${PORT}`);
 });

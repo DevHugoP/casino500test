@@ -1,7 +1,7 @@
 {
     "name": "todo-app-backend",
     "version": "1.0.0",
-    "description": "Backend pour l'application Todo avec Express, Socket.IO et MongoDB",
+    "description": "Backend for the Todo app with Express, Socket.IO and MongoDB",
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
