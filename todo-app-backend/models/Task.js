@@ -4,7 +4,7 @@ const taskSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: [true, 'Veuillez entrer le titre de la tâche'],
+      required: [true, 'Please enter the task title'],
       trim: true
     },
     completed: {

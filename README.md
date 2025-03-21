@@ -43,7 +43,7 @@ A real-time todo application built with Vue.js, Express, MongoDB, and Socket.IO.
 
 3. Create a `.env` file in the root of the backend directory with the following variables:
    ```
-   PORT=5000
+   PORT=5001
    MONGO_URI=mongodb://localhost:27017/todo-app
    ```
    Note: Adjust the MONGO_URI based on your MongoDB setup. If using MongoDB Atlas, use the connection string provided by the service.
@@ -71,8 +71,8 @@ A real-time todo application built with Vue.js, Express, MongoDB, and Socket.IO.
 
 3. Create a `.env` file in the root of the frontend directory with the following variables:
    ```
-   VUE_APP_API_URL=http://localhost:5000/api
-   VUE_APP_SOCKET_URL=http://localhost:5000
+   VUE_APP_API_URL=http://localhost:5001/api
+   VUE_APP_SOCKET_URL=http://localhost:5001
    ```
    Note: Adjust the URLs if your backend is running on a different host or port.
 
@@ -110,7 +110,3 @@ project-root/
     ├── routes/           # API routes
     └── server.js         # Server entry point
 ```
-
-## License
-
-MIT

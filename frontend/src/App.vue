@@ -2,6 +2,7 @@
   <div id="app">
     <div class="container">
       <h1>My Todo List</h1>
+      <img src="assets/logo.png" alt="logo" />
       <TaskForm @task-added="handleTaskAdded" />
       <TaskList :tasks="tasks" />
     </div>

@@ -2,9 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../models/Task');
 
-// @desc    Obtenir toutes les tâches
-// @route   GET /api/tasks
-// @access  Public
 router.get('/', async (req, res) => {
   try {
     const tasks = await Task.find().sort({ createdAt: -1 });
@@ -14,13 +11,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @desc    Créer une nouvelle tâche
-// @route   POST /api/tasks
-// @access  Public
 router.post('/', async (req, res) => {
   try {
     if (!req.body.title) {
-      return res.status(400).json({ message: 'Le titre de la tâche est requis' });
+      return res.status(400).json({ message: 'Task title is required' });
     }
 
     const task = await Task.create({
