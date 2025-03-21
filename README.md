@@ -22,6 +22,26 @@ A real-time todo application built with Vue.js, Express, MongoDB, and Socket.IO.
 - MongoDB with Mongoose
 - Socket.IO (server)
 
+
+## Project Structure
+
+```
+project-root/
+├── frontend/             # Vue.js frontend
+│   ├── public/           # Static files
+│   └── src/              # Source files
+│       ├── components/   # Vue components
+│       ├── App.vue       # Main app component
+│       └── main.js       # Entry point
+│
+└── todo-app-backend/     # Express.js backend
+    ├── config/           # Configuration files
+    ├── models/           # Mongoose models
+    ├── routes/           # API routes
+    └── server.js         # Server entry point
+```
+
+
 ## Installation
 
 ### Prerequisites
@@ -93,20 +113,3 @@ After starting both the backend and frontend servers, you can access the applica
 - To add a new task, enter the task title in the input field and click "Add"
 - The task will be added to the list and will be visible in real-time to all connected clients
 
-## Project Structure
-
-```
-project-root/
-├── frontend/             # Vue.js frontend
-│   ├── public/           # Static files
-│   └── src/              # Source files
-│       ├── components/   # Vue components
-│       ├── App.vue       # Main app component
-│       └── main.js       # Entry point
-│
-└── todo-app-backend/     # Express.js backend
-    ├── config/           # Configuration files
-    ├── models/           # Mongoose models
-    ├── routes/           # API routes
-    └── server.js         # Server entry point
-```

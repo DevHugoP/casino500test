@@ -2,7 +2,12 @@
   <div id="app">
     <div class="container">
       <h1>My Todo List</h1>
-      <img src="assets/logo.png" alt="logo" />
+      <div class="logo-container">
+        <img
+          :src="require('@/assets/logo.png')"
+          alt="logo"
+          class="centered-logo" />
+      </div>
       <TaskForm @task-added="handleTaskAdded" />
       <TaskList :tasks="tasks" />
     </div>
@@ -28,19 +33,15 @@
       };
     },
     created() {
-      // Initialize Socket.IO connection
       this.socket = io(process.env.VUE_APP_SOCKET_URL);
 
-      // Listen for new tasks
       this.socket.on("newTask", (task) => {
         this.tasks.unshift(task);
       });
 
-      // Load tasks from API
       this.fetchTasks();
     },
     beforeDestroy() {
-      // Close Socket.IO connection
       if (this.socket) {
         this.socket.disconnect();
       }
@@ -57,10 +58,8 @@
         }
       },
       handleTaskAdded(task) {
-        // Add task to local list
         this.tasks.unshift(task);
 
-        // Emit event to all other clients
         this.socket.emit("taskAdded", task);
       },
     },
@@ -85,5 +84,16 @@
   h1 {
     text-align: center;
     margin-bottom: 30px;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .centered-logo {
+    max-width: 100px;
+    height: auto;
   }
 </style>
